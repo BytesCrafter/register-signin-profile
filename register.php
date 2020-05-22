@@ -27,8 +27,8 @@
                         </div>
 
                         <div class="form-label-group">
-                            <label for="inputEmail">Email address</label>
-                            <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputEmail">Username</label>
+                            <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
                         </div>
 
                         <div class="form-label-group">
