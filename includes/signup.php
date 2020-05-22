@@ -7,14 +7,12 @@
         $uname = $_POST['uname'];
         $pword = md5($_POST['pword']);
 
-        $sql = "SELECT * FROM users WHERE uname='$uname' AND pword='$pword'";
+        $sql = "INSERT INTO users (uname, pword) VALUES ('$uname', '$pword') ";
         $result = $conn->query($sql);
 
-        if (mysqli_num_rows($result) > 0) {
-            $_SESSION["token"]="sample";
-
+        if ($result) {
             $response["status"] = "success";
-            $response["data"] = $result->fetch_assoc();
+            $response["data"] = "You can now signin.";
 
             echo json_encode($response);
         } else {
