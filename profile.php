@@ -1,5 +1,5 @@
 <?php
-    $page = "home";
+    $page = "profile";
     include("./includes/sess.php");
 ?>
 
@@ -44,40 +44,28 @@
             <div class="col-md-12">
                 <form id="signin-form" class="form-signin">
                     <div class="text-center mb-4">
-                        <h1 class="h3 mb-3 font-weight-normal">SIGN IN</h1>
+                        <h1 class="h3 mb-3 font-weight-normal">Hello!</h1>
                     </div>
 
-                    <div class="form-label-group">
-                        <label for="inputEmail">Email address</label>
-                        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                    </div>
-
-                    <div class="form-label-group">
-                        <label for="inputEmail">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                    </div>
-
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 24px;">Sign in</button>
-                    <p class="mt-5 mb-3 text-muted text-center">Not a member? <a href="/register.php">REGISTER</a></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 24px;">Logout</button>
                 </form>
             </div>
         </div>
     </div>
-    
 
     <script>
         $(document).ready(function() {
             $('#signin-form').submit( function(e) {
                 e.preventDefault();
-                var postVar = { "uname": $("#inputEmail").val(), "pword": $("#inputPassword").val() };
+
                 $.ajax({
                     type: "POST",
-                    url: "https://emathrix.dev/includes/signin.php",
-                    data: postVar,
+                    url: "https://emathrix.dev/includes/logout.php",
+                    data: {},
                     dataType: 'json',
                     success: function(retData) {
+                        window.location.replace("http://emathrix.dev");
                         console.log("Return: " + JSON.stringify(retData));
-                        window.location.replace("http://emathrix.dev/profile.php");
                     },
                     error: function(httpReq, status, error) {
                         console.log(httpReq + '::' + status + "::" + error);
@@ -87,6 +75,7 @@
         });
         
     </script>
+
 </body>
 
 </html>

@@ -1,12 +1,3 @@
-<?php
-    if(isset($_SESSION["token"])) {
-        //Redirect to profile.
-        echo "<script> console.log('login'); </script>";
-    } else {
-        //Redirect to Signin.
-        echo "<script> console.log('logout'); </script>";
-    }
-?>
 
 <!doctype html>
 <html lang="en">
@@ -67,8 +58,8 @@
                         <input type="password" id="inputPassword2" class="form-control" placeholder="Password" required>
                     </div>
 
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 24px;">Sign in</button>
-                    <p class="mt-5 mb-3 text-muted text-center">Sign Up <a href="/index.php">HERE</a></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 24px;">Sign Up</button>
+                    <p class="mt-5 mb-3 text-muted text-center">Login <a href="/index.php">HERE</a></p>
                 </form>
             </div>
         </div>
