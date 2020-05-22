@@ -1,15 +1,16 @@
 <?php
 
-    $conn = new mysqli("localhost","admin","admin","emathrix");
+    include( dirname( __DIR__ ) . "../config.php" );
+
+    $conn = new mysqli($mysql_lhost, $mysql_uname, $mysql_pword, $mysql_dbase);
 
     // Check connection
     if ($conn->connect_error) {
         $response = array(
-            "status" => "nothing"
+            "status" => "mysql",
+            "message" => $conn->connect_error
         );
-        exit( json_encode( $response ) );
+        echo json_encode( $response );
     }
-
-    session_start();
 
 ?>

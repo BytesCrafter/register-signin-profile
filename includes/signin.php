@@ -11,6 +11,7 @@
         $result = $conn->query($sql);
 
         if (mysqli_num_rows($result) > 0) {
+            session_start();
             $_SESSION["token"]="sample";
 
             $response["status"] = "success";

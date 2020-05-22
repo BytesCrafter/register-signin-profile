@@ -1,6 +1,20 @@
 <?php
     $page = "home";
+    include("./includes/conn.php");
     include("./includes/sess.php");
+
+    //Check if user table is isntalled
+    if (!$conn->connect_error) {
+        $user_table = TAB_PREFIX . "users";
+        $sql = "SHOW TABLES LIKE '$user_table'";
+        $result = $conn->query($sql);
+
+        if(mysqli_num_rows($result) == 0) {
+            //Redirect to index.php
+            header("Location: ".$site_url."/install.php");
+            exit();
+        } 
+    }
 ?>
 
 <!doctype html>
