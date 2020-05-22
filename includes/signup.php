@@ -7,7 +7,9 @@
         $uname = $_POST['uname'];
         $pword = md5($_POST['pword']);
 
-        $sql = "INSERT INTO users (uname, pword) VALUES ('$uname', '$pword') ";
+        $user_table = TAB_PREFIX . "users";
+
+        $sql = "INSERT INTO $user_table (uname, pword) VALUES ('$uname', '$pword') ";
         $result = $conn->query($sql);
 
         if ($result) {

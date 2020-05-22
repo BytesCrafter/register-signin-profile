@@ -7,7 +7,9 @@
         $uname = $_POST['uname'];
         $pword = md5($_POST['pword']);
 
-        $sql = "SELECT * FROM users WHERE uname='$uname' AND pword='$pword'";
+        $user_table = TAB_PREFIX . "users";
+
+        $sql = "SELECT * FROM $user_table WHERE uname='$uname' AND pword='$pword'";
         $result = $conn->query($sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -21,7 +23,7 @@
         } else {
             
             $response["status"] = "error";
-            $response["message"] = "User not Found!";
+            $response["message"] = "Mysql query error.";
             echo json_encode($response);
         }
 
