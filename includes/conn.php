@@ -1,11 +1,15 @@
 <?php
 
-    $mysqli = new mysqli("localhost","admin","admin","emathrix");
+    $conn = new mysqli("localhost","admin","admin","emathrix");
 
     // Check connection
-    if ($mysqli -> connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-        exit();
-    } 
+    if ($conn->connect_error) {
+        $response = array(
+            "status" => "nothing"
+        );
+        exit( json_encode( $response ) );
+    }
+
+    session_start();
 
 ?>

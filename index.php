@@ -1,3 +1,13 @@
+<?php
+    if(isset($_SESSION["token"])) {
+        //Redirect to profile.
+        echo "<script> console.log('login'); </script>";
+    } else {
+        //Redirect to Signin.
+        echo "<script> console.log('logout'); </script>";
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -43,22 +53,17 @@
                     </div>
 
                     <div class="form-label-group">
-                        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputEmail">Email address</label>
+                        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                     </div>
 
                     <div class="form-label-group">
+                        <label for="inputEmail">Password</label>
                         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Password</label>
                     </div>
 
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                    <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2020</p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 24px;">Sign in</button>
+                    <p class="mt-5 mb-3 text-muted text-center">Not a member? <a href="/register.php">REGISTER</a></p>
                 </form>
             </div>
         </div>
